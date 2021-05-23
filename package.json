@@ -1,7 +1,10 @@
 {
-  "name": "totoroui",
+  "name": "totoroui2",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "基于 vue cli4 的 UI 组件库",
+  "main": "lib/totoroui.umd.min.js",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
