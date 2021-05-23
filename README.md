@@ -24,7 +24,31 @@ yarn build
 yarn lint
 ```
 
-编译为库的命令:
+## 支持 markdown 文件展示
+
+### 添加依赖包
+
+- vue-markdown-loader
+- highlight.js
+
+### `vue.config.js` 配置
+
+```
+chainWebpack (config) {
+    config.resolve.extensions.add('.md');
+    config.module
+        .rule('md')
+        .test(/\.md/)
+        .use('vue-loader')
+        .loader('vue-loader')
+        .end()
+        .use('vue-markdown-loader')
+        .loader('vue-markdown-loader/lib/markdown-compiler')
+        .options({raw:true});
+}
+```
+
+### 编译为库的命令
 
 ```
 // name: 输出文件名,dest: 输出目录，默认为 dist,entry: 入口文件路径

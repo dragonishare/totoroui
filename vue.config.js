@@ -31,5 +31,19 @@ module.exports = {
         // 修改它的选项...
         return options;
       });
+
+    // 支持markdown文件解析
+    config.resolve.extensions.add(".md");
+    config.module
+      .rule("md")
+      .test(/\.md/)
+      .use("vue-loader")
+      .loader("vue-loader")
+      .end()
+      .use("vue-markdown-loader")
+      .loader("vue-markdown-loader/lib/markdown-compiler")
+      .options({
+        raw: true,
+      });
   },
 };
