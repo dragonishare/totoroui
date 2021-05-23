@@ -20,5 +20,10 @@ yarn build
 yarn lint
 ```
 
+```
+// name: 输出文件名,dest: 输出目录，默认为 dist,entry: 入口文件路径
+"lib":"vue-cli-service build --target lib --name totoroui --dest lib packages/index.js"
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
