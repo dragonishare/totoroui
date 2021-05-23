@@ -19,6 +19,9 @@ import "highlight.js/styles/color-brewer.css";
 import DemoBlock from "./components/demoBlock";
 Vue.component("demo-block", DemoBlock);
 
+// 各demo的样式
+import "./assets/demo-styles/index.scss";
+
 Vue.config.productionTip = false;
 
 new Vue({
