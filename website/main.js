@@ -12,8 +12,6 @@ import "element-ui/lib/theme-chalk/index.css";
 
 Vue.use(ElementUI);
 import "./assets/github-markdown.css";
-//引入代码高亮
-import "highlight.js/styles/color-brewer.css";
 
 // 引入demo-block
 import DemoBlock from "./components/demoBlock";
