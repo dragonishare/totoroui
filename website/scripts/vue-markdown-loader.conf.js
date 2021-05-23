@@ -44,9 +44,13 @@ module.exports = {
         },
 
         render: function (tokens, idx) {
-          var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
           if (tokens[idx].nesting === 1) {
+            // 1.获取第一行的内容使用markdown渲染html作为组件的描述
+            var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
             var description = m && m.length > 1 ? m[1] : "";
+            var descriptionHTML = description ? md.render(description) : "";
+
+            // 2.获取代码块内的html和js代码
             var content = tokens[idx + 1].content;
             var html = convert(
               striptags.strip(content, ["script", "style"])
@@ -54,9 +58,9 @@ module.exports = {
             var script = striptags.fetch(content, "script");
             var style = striptags.fetch(content, "style");
             var jsfiddle = { html: html, script: script, style: style };
-            var descriptionHTML = description ? md.render(description) : "";
-
             jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle));
+
+            // 3.使用自定义开发组件【DemoBlock】来包裹内容并且渲染成案例和代码示例
             return `<demo-block :jsfiddle="${jsfiddle}">
                     <div class="source" slot="source">${html}</div>
                     ${descriptionHTML}
