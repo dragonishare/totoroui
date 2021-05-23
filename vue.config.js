@@ -25,8 +25,6 @@ module.exports = {
       .rule("js")
       .include.add(/packages/)
       .end()
-      .include.add(/website/)
-      .end()
       .use("babel")
       .loader("babel-loader")
       .tap((options) => {
