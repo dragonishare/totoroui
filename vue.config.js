@@ -1,4 +1,5 @@
 const path = require("path");
+const VueMarkDownOptions = require("./website/scripts/vue-markdown-loader.conf");
 
 module.exports = {
   devServer: {
@@ -42,8 +43,6 @@ module.exports = {
       .end()
       .use("vue-markdown-loader")
       .loader("vue-markdown-loader/lib/markdown-compiler")
-      .options({
-        raw: true,
-      });
+      .options(VueMarkDownOptions);
   },
 };
